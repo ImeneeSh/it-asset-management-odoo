@@ -1,0 +1,71 @@
+<odoo>
+    <!-- Vue formulaire -->
+    <record id="view_it_ticket_form" model="ir.ui.view">
+        <field name="name">it.ticket.form</field>
+        <field name="model">it.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Démarrer" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_resolve" type="object" string="Résoudre" class="btn-primary" invisible="state != 'in_progress'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,in_progress,resolved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="equipment_id"/>
+                        <field name="technician_id"/>
+                        <field name="state"/>
+                        <field name="date_created"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue liste -->
+    <record id="view_it_ticket_list" model="ir.ui.view">
+        <field name="name">it.ticket.list</field>
+        <field name="model">it.ticket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="technician_id"/>
+                <field name="state"/>
+                <field name="date_created"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="view_it_ticket_kanban" model="ir.ui.view">
+        <field name="name">it.ticket.kanban</field>
+        <field name="model">it.ticket</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="state"/>
+                <field name="equipment_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="equipment_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_it_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">it.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <!-- Sous-menu Tickets, à côté de celui des équipements -->
+    <menuitem id="menu_it_ticket" name="Tickets" parent="menu_it_asset_root" action="action_it_ticket" sequence="20"/>
+</odoo>

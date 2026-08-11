@@ -1,0 +1,17 @@
+<odoo>
+    <record id="module_category_it_asset" model="ir.module.category">
+        <field name="name">Gestion de Parc Informatique</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="group_it_technician" model="res.groups">
+        <field name="name">Technicien</field>
+        <field name="category_id" ref="module_category_it_asset"/>
+    </record>
+
+    <record id="group_it_manager" model="res.groups">
+        <field name="name">Responsable Parc IT</field>
+        <field name="category_id" ref="module_category_it_asset"/>
+        <field name="implied_ids" eval="[(4, ref('group_it_technician'))]"/>
+    </record>
+</odoo>
