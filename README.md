@@ -42,11 +42,12 @@ Module Odoo développé pour la gestion d'un parc informatique en entreprise : s
 ##  Structure du projet
 
 ```bash
-t_asset_management/
+it_asset_management/
 ├── models/ # Logique métier (équipements, tickets)
 ├── views/ # Interfaces utilisateur (formulaires, listes, kanban)
 ├── security/ # Groupes, droits d'accès, règles
 └── reports/ # Rapport PDF d'intervention
+└── docs/screenshots/ # Captures d'écrans des interfaces
 ```
 
 ##  Auteur
