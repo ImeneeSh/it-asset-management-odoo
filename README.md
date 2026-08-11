@@ -29,13 +29,12 @@ Module Odoo développé pour la gestion d'un parc informatique en entreprise : s
 ![Ticket ouvert](docs/screenshots/ticketOuvert.png)
 ![Blocage](docs/screenshots/blocage.png)
 ![Fiche intervention pdf](docs/screenshots/ficheIntervention.png)
-![Droits d'accès pour la sécurité](docs/screenshots/DA.png)
 
 ## Installation
 
 1. Cloner ce dépôt dans le dossier `addons` de votre instance Odoo 17 :
 ```bash
-   git clone https://github.com/<ton-pseudo>/it-asset-management.git
+   git clone https://github.com/ImeneeSh/it-asset-management-odoo.git
 ```
 2. Mettre à jour la liste des applications dans Odoo
 3. Activer le module "Gestion de Parc Informatique"
